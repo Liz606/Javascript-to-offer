@@ -1,5 +1,6 @@
 import numpy as np
-import pandas as pd 
+# import pandas as pd
 
 
-print(np.arange(12).reshape(3,4)) # 生成数组
+# print(np.arange(120).reshape(30,4))
+print(np.random.randint(1, 100, (3, 4)))
