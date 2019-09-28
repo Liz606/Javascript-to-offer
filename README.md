@@ -7,3 +7,10 @@
 
 # 运行题目
 `node path/file.js`
+
+# [二维数组查找](./searchMatrix.js)
+
+# [二分查找](./binarySearch.js)
+[二分查找易错点](./二分查找.md)
+
+# [选择排序](./selectSort.js)
