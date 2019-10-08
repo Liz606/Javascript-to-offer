@@ -20,20 +20,30 @@
 // 选择排序
 
 
-const target = 3;
-const array =[[-5, 3]]
+const target = 1;
+const array =[[1,2,8,9],[2,4,9,12],[4,7,10,13],[6,8,11,15]]
 
-Find(target, array);
+console.log(Find(target, array));
 
 function Find(target, array) {   
-    const m = array.length; // 行
-    let flag = false;
+    let len = array.length;
     let i = 0;
-    for (i; i < m & !flag ; i++ ){
-        flag = binarySearch(array[i], target);
-    }
-    return flag;
+    while(i < len){
+    if (binarySearch(array[i], target)) return true;
+    i++;
+  }
+  return false;
 }
+
+// function Find(target, array) {   
+//     const m = array.length; // 行
+//     let flag = false;
+//     let i = 0;
+//     for (i; i < m & !flag ; i++ ){
+//         flag = binarySearch(array[i], target);
+//     }
+//     return flag;
+// }
 
 // 二分查找
 function binarySearch(newArray, target) {
@@ -59,6 +69,6 @@ function binarySearch(newArray, target) {
     console.log('最后，left:', left, 'right:', right, 'mid:', mid);
     // while 循环结束 此时left == right
     // left == right时, array[left] == target
-    if(array[left] == target) return true;
+    if(array[left] === target) return true;
     return false;
 }
