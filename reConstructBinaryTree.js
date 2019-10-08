@@ -4,12 +4,13 @@ function TreeNode(x) {
     this.right = null;
 }
 
-const pre = [1,2,3,4,5,6,7];
-const vin = [3,2,4,1,6,5,7];
+const pre = [3, 9, 20, 15, 7];
+const vin = [9, 3, 15, 20, 7];
 
 console.log(reConstructBinaryTree(pre, vin)); //[ 1, 2, 5, 3, 4, 6, 7 ]
 function reConstructBinaryTree(pre, vin){
     let tree = binaryTree(pre, vin);
+    console.log(tree);
     let array = [];
     while(tree.length > 0){
         let temp = [];
@@ -26,9 +27,23 @@ function reConstructBinaryTree(pre, vin){
     return array;
 }
 
-const __pre = [1, 2, 3, 4, 5, 6, 7];
-const __vin = [3, 2, 4, 1, 6, 5, 7];
+function binaryTree(pre, vin) {
+    let tree = [];
+    let node = pre.shift(); 
+    tree.push(node);
+    let leftVin = vin.slice(0, vin.indexOf(node)); 
+    let rightVin = vin.slice(vin.indexOf(node) + 1); 
+    let leftPre = getPre(pre, leftVin); 
+    let rightPre = getPre(pre, rightVin); 
+    tree.push(binaryTree(leftPre, leftVin));
+    tree.push(binaryTree(rightPre, rightVin));
+    return tree;
+}
 
+
+
+// const __pre = [1, 2, 3, 4, 5, 6, 7];
+// const __vin = [3, 2, 4, 1, 6, 5, 7];
 //console.log(binaryTree(__pre, __vin));
 // [ 1, [ 2, [ 3 ], [ 4 ] ], [ 5, [ 6 ], [ 7 ] ] ]
 function binaryTree(pre, vin) {
@@ -48,11 +63,8 @@ function binaryTree(pre, vin) {
     return tree;
 }
 
-
-
-const _pre = [1, 2, 3, 4, 5, 6, 7];
-const _vin = [3, 2, 4, 1, 6, 5, 7];
-
+// const _pre = [1, 2, 3, 4, 5, 6, 7];
+// const _vin = [3, 2, 4, 1, 6, 5, 7];
 //console.log(getConstructBinaryTree(_pre, _vin));
 /*
 TreeNode {
